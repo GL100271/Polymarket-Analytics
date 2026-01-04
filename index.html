@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket Analytics Dashboard</title>
+    <meta name="description" content="Real-time prediction market data and analysis from Polymarket">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen p-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Polymarket Analytics</h1>
+                <p class="text-gray-600">Real-time prediction market data and analysis</p>
+            </div>
+
+            <!-- Controls -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Market Filter</label>
+                        <select id="marketFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="all">All Markets</option>
+                            <option value="open">Open Markets</option>
+                            <option value="closed">Closed Markets</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
+                        <select id="sortBy" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="volume">Volume (High to Low)</option>
+                            <option value="liquidity">Liquidity</option>
+                            <option value="volume_change">Volume Change</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Refresh Data</label>
+                        <button id="refreshBtn" class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            Refresh Markets
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-sm text-gray-600 mb-1">Total Markets</div>
+                    <div id="totalMarkets" class="text-2xl font-bold text-gray-900">-</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-sm text-gray-600 mb-1">Total Volume (24h)</div>
+                    <div id="totalVolume" class="text-2xl font-bold text-blue-600">-</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-sm text-gray-600 mb-1">Active Markets</div>
+                    <div id="activeMarkets" class="text-2xl font-bold text-green-600">-</div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="text-sm text-gray-600 mb-1">Avg Liquidity</div>
+                    <div id="avgLiquidity" class="text-2xl font-bold text-purple-600">-</div>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Volume Distribution</h2>
+                <canvas id="volumeChart" height="80"></canvas>
+            </div>
+
+            <!-- Markets Table -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Market Overview</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700">Market</th>
+                                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Volume (24h)</th>
+                                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Liquidity</th>
+                                <th class="text-right py-3 px-4 text-sm font-semibold text-gray-700">Yes Price</th>
+                                <th class="text-center py-3 px-4 text-sm font-semibold text-gray-700">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marketsTable">
+                            <tr>
+                                <td colspan="5" class="text-center py-8 text-gray-500">
+                                    Loading markets...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-6 text-center text-sm text-gray-500">
+                <p>Data from Polymarket API • Updates every 30 seconds</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
