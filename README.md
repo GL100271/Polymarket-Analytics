@@ -14,44 +14,7 @@ A real-time analytics dashboard for Polymarket prediction markets. Track volume,
 - **Auto-refresh**: Data updates every 30 seconds
 - **Responsive Design**: Works on desktop, tablet, and mobile
 
-## 📋 Quick Start
-
-### Option 1: View Locally (No Setup Required)
-
-1. Download all files from this repository
-2. Open `index.html` in your web browser
-3. That's it! The dashboard will start loading data
-
-### Option 2: Deploy to GitHub Pages (Recommended)
-
-**Step 1: Create a GitHub Account**
-- Go to [github.com](https://github.com) and sign up (it's free!)
-
-**Step 2: Create a New Repository**
-1. Click the `+` icon in the top right
-2. Select "New repository"
-3. Name it: `polymarket-analytics` (or any name you like)
-4. Make it **Public**
-5. Click "Create repository"
-
-**Step 3: Upload Your Files**
-1. On your repository page, click "uploading an existing file"
-2. Drag and drop all files:
-   - `index.html`
-   - `app.js`
-   - `styles.css`
-   - `README.md`
-3. Click "Commit changes"
-
-**Step 4: Enable GitHub Pages**
-1. Go to your repository Settings
-2. Scroll down to "Pages" in the left sidebar
-3. Under "Source", select `main` branch
-4. Click "Save"
-5. Wait 1-2 minutes
-
-**Step 5: Access Your Dashboard**
-Your dashboard will be live at:
+dashboard will be live at:
 ```
 https://YOUR-USERNAME.github.io/polymarket-analytics
 ```
@@ -101,8 +64,6 @@ polymarket-analytics/
 - **styles.css**: Custom styling and animations
 - **README.md**: Documentation and instructions
 
-## 🎨 Customization Ideas
-
 ### Change Colors
 Edit `index.html` and replace Tailwind color classes:
 - `bg-blue-600` → `bg-purple-600` (change button color)
@@ -119,37 +80,6 @@ Edit `app.js`, line 8:
 ```javascript
 MAX_MARKETS_DISPLAY: 20, // Change to 50 to show more markets
 ```
-
-### Add Your Name/Branding
-Edit `index.html`, line 12:
-```html
-<h1 class="text-3xl font-bold text-gray-900 mb-2">Your Name's Polymarket Analytics</h1>
-```
-
-## 🚀 Future Roadmap (Evolution Path)
-
-### Phase 1: Current (Static Dashboard) ✅
-- Real-time market data
-- Basic filtering and sorting
-- Volume charts
-
-### Phase 2: Enhanced Features (Coming Soon)
-- Price change alerts
-- Historical data tracking
-- Market comparison tools
-- Export data to CSV
-
-### Phase 3: Backend Integration
-- User accounts
-- Save favorite markets
-- Custom alerts via email/SMS
-- Historical backtesting
-
-### Phase 4: Full Web Application
-- Custom domain
-- Premium features
-- Payment integration
-- Mobile app
 
 ## 🛠 Technical Details
 
@@ -201,55 +131,6 @@ All data comes from Polymarket's public API. No API key required for read-only a
 - Click "Refresh Markets" button
 - Check if auto-refresh is working (should update every 30s)
 
-## 🤝 Contributing
-
-Want to improve the dashboard? Here's how:
-
-1. Fork this repository
-2. Create a new branch: `git checkout -b feature-name`
-3. Make your changes
-4. Commit: `git commit -m 'Add feature'`
-5. Push: `git push origin feature-name`
-6. Open a Pull Request
-
-## 📝 Ideas for Improvements
-
-**Easy:**
-- Add dark mode toggle
-- More chart types (pie, line)
-- Better mobile layout
-
-**Medium:**
-- Search markets by keyword
-- Compare multiple markets
-- Download data as CSV
-
-**Advanced:**
-- User authentication
-- Save favorite markets
-- Price alerts
-- Trading signals
-
-## 📄 License
-
-MIT License - feel free to use this however you want!
-
-## 🙋‍♂️ Support
-
-Having issues or questions?
-- Open an issue on GitHub
-- Check the browser console for errors
-- Review Polymarket's API documentation
-
-## 🎯 Next Steps
-
-1. **Get it running**: Follow the Quick Start guide above
-2. **Share with friends**: Send them your GitHub Pages URL
-3. **Customize it**: Make it your own with different colors/features
-4. **Add features**: Check the roadmap for ideas
-5. **Scale up**: When ready, move to a full web app framework
-
----
 
 Built with ❤️ for the Polymarket community
 
